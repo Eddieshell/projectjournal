@@ -1,23 +1,44 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * ProjectUpdates are the user updates created on a project
+ * a project can have many Updates. Updates are identified
+ * by an auto-generated ID integer. And will be displayed
+ * in chronalogical order by LocalDate.
  */
 package com.update.projectjurnalspringboot.model;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
- *
+ * -- projectUpdate Model--
+ * JPA Annotations
+ * Getter & Setters
+ * Equals and HashCode Overrides
  * @author Eddie
  */
+
+@Entity
 public class projectUpdate {
     
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int projectUpdateID;
+    
+    @Column
     private LocalDate projectUpdateDate;
+    
+    @Column    
     private String projectUpdateTitle;
+    
+    @Column
     private String projectUpdate;
+    
+    @Column
     private int projectID;
 
     public int getProjectUpdateID() {
