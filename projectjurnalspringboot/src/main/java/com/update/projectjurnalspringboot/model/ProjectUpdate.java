@@ -15,15 +15,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * -- projectUpdate Model--
- * JPA Annotations
- * Getter & Setters
+ * -- ProjectUpdate Model--
+ JPA Annotations
+ Getter & Setters
  * Equals and HashCode Overrides
  * @author Eddie
  */
 
 @Entity
-public class projectUpdate {
+public class ProjectUpdate {
     
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -103,7 +103,7 @@ public class projectUpdate {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final projectUpdate other = (projectUpdate) obj;
+        final ProjectUpdate other = (ProjectUpdate) obj;
         if (this.projectUpdateID != other.projectUpdateID) {
             return false;
         }
