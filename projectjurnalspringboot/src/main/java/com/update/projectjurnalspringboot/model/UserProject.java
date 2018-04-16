@@ -1,21 +1,38 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UserProject Model controls the data for projects being tracked by 
+ * a SiteUser. SiteUsers can have many UserProjects's
  */
 package com.update.projectjurnalspringboot.model;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
- *
+ * -- UserProject Model--
+ * JPA Annotations
+ * Getter & Setters
+ * Equals and HashCode Overrides
  * @author Eddie
  */
+
+@Entity
 public class UserProject {
     
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int projectID;
+    
+    @Column
     private String ProjectTitle;
+    
+    @Column
     private String projectDiscription;
+    
+    @Column
     private int projectOwnerID;
 
     public int getProjectID() {
