@@ -1,8 +1,7 @@
 /*
- * Defines the SiteUser class for Updates Project Journal
- * Annotations have been used for JPA relations
- * Getters and Setters defined for the SiteUser Class
- * Equals and HashCode overides established.
+ * The SiteUser Model tracks and allows access to registard and logged in 
+ * SiteUsers. UserName is a unique field and is used as the User ID. Spring
+ * Security uses User ID to track User and Permissions.
  */
 package com.update.projectjurnalspringboot.model;
 
@@ -17,7 +16,10 @@ import javax.persistence.OneToMany;
 
 
 /**
- *
+ * --Site User Model--
+ * JPA Annotations
+ * Getter & Setters
+ * Equals and HashCode Overrides
  * @author Eddie
  */
 @Entity
@@ -41,15 +43,7 @@ public class SiteUser {
     @OneToMany
     private List<UserProject> userProjects;
 
-    //Getters and Setters for the SiteUser Class
-    public int getUserID() {
-        return UserID;
-    }
-
-    public void setUserID(int UserID) {
-        this.UserID = UserID;
-    }
-
+    //Getters and Setters for the SiteUser Class    
     public String getUserName() {
         return userName;
     }

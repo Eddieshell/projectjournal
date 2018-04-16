@@ -1,22 +1,42 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Profile class for the Updates. A user can have Bussiness Profile,
+ * a Personal Profile or an Educational/Goverment Agency Profile.
+ * This class is for the Personal Profile.
  */
 package com.update.projectjurnalspringboot.model;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
- *
+ * --Person Profile Model--
+ * JPA Annotations
+ * Getter & Setters
+ * Equals and HashCode Overrides
  * @author Eddie
  */
+
+@Entity
 public class PersonProfile {
     
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Id
     private int personProfileID;
+    
+    @Column
     private String firstName;
+    
+    @Column
     private String lastName;
+    
+    @Column
     private String personEmailAddress;
+    
+    @Column
     private String personProfileImageLink;
 
     public int getPersonProfileID() {
