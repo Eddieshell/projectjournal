@@ -1,23 +1,54 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Defines the SiteUser class for Updates Project Journal
+ * Annotations have been used for JPA relations
+ * Getters and Setters defined for the SiteUser Class
+ * Equals and HashCode overides established.
  */
 package com.update.projectjurnalspringboot.model;
 
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 
 /**
  *
  * @author Eddie
  */
-public class User {
+@Entity
+public class SiteUser {
     
+    @Id    
     private String userName;
+
+    @Column
     private int userType;
+
+    @OneToMany
     private PersonProfile PersonProfile;
+
+    @Column
     private String password;
+
+    @Column
     private int roleID;
+
+    @OneToMany
+    private List<UserProject> userProjects;
+
+    //Getters and Setters for the SiteUser Class
+    public int getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
+    }
 
     public String getUserName() {
         return userName;
@@ -59,14 +90,24 @@ public class User {
         this.roleID = roleID;
     }
 
+    public List<UserProject> getUserProjects() {
+        return userProjects;
+    }
+
+    public void setUserProjects(List<UserProject> userProjects) {
+        this.userProjects = userProjects;
+    }
+
+    //HasCode and Equals Override for the SiteUser Class
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.userName);
-        hash = 97 * hash + this.userType;
-        hash = 97 * hash + Objects.hashCode(this.PersonProfile);
-        hash = 97 * hash + Objects.hashCode(this.password);
-        hash = 97 * hash + this.roleID;
+        hash = 83 * hash + Objects.hashCode(this.userName);
+        hash = 83 * hash + this.userType;
+        hash = 83 * hash + Objects.hashCode(this.PersonProfile);
+        hash = 83 * hash + Objects.hashCode(this.password);
+        hash = 83 * hash + this.roleID;
+        hash = 83 * hash + Objects.hashCode(this.userProjects);
         return hash;
     }
 
@@ -81,7 +122,7 @@ public class User {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final User other = (User) obj;
+        final SiteUser other = (SiteUser) obj;
         if (this.userType != other.userType) {
             return false;
         }
@@ -97,9 +138,10 @@ public class User {
         if (!Objects.equals(this.PersonProfile, other.PersonProfile)) {
             return false;
         }
+        if (!Objects.equals(this.userProjects, other.userProjects)) {
+            return false;
+        }
         return true;
     }
-    
-    
-    
+
 }
