@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  * -- UserProject Model--
@@ -33,7 +35,7 @@ public class UserProject {
     private String projectDiscription;
     
     @Column
-    private int projectOwnerID;
+    private String projectOwnerID;
 
     public int getProjectID() {
         return projectID;
@@ -59,21 +61,21 @@ public class UserProject {
         this.projectDiscription = projectDiscription;
     }
 
-    public int getProjectOwnerID() {
+    public String getProjectOwnerID() {
         return projectOwnerID;
     }
 
-    public void setProjectOwnerID(int projectOwnerID) {
+    public void setProjectOwnerID(String projectOwnerID) {
         this.projectOwnerID = projectOwnerID;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + this.projectID;
-        hash = 17 * hash + Objects.hashCode(this.ProjectTitle);
-        hash = 17 * hash + Objects.hashCode(this.projectDiscription);
-        hash = 17 * hash + this.projectOwnerID;
+        int hash = 5;
+        hash = 79 * hash + this.projectID;
+        hash = 79 * hash + Objects.hashCode(this.ProjectTitle);
+        hash = 79 * hash + Objects.hashCode(this.projectDiscription);
+        hash = 79 * hash + Objects.hashCode(this.projectOwnerID);
         return hash;
     }
 
@@ -92,17 +94,22 @@ public class UserProject {
         if (this.projectID != other.projectID) {
             return false;
         }
-        if (this.projectOwnerID != other.projectOwnerID) {
-            return false;
-        }
         if (!Objects.equals(this.ProjectTitle, other.ProjectTitle)) {
             return false;
         }
         if (!Objects.equals(this.projectDiscription, other.projectDiscription)) {
             return false;
         }
+        if (!Objects.equals(this.projectOwnerID, other.projectOwnerID)) {
+            return false;
+        }
         return true;
     }
+
+    
+
+    
+
     
     
     

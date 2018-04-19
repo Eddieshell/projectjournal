@@ -12,6 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 
@@ -29,18 +32,17 @@ public class SiteUser {
     private String userName;
 
     @Column
-    private int userType;
+    private int userTypeID;
 
-    @OneToMany
+    @ManyToOne
+    @JoinColumn (name = "userProfile")
     private PersonProfile PersonProfile;
 
     @Column
     private String password;
 
-    @Column
-    private int roleID;
-
-    @OneToMany
+    
+    @OneToMany    
     private List<UserProject> userProjects;
 
     //Getters and Setters for the SiteUser Class    
@@ -52,12 +54,12 @@ public class SiteUser {
         this.userName = userName;
     }
 
-    public int getUserType() {
-        return userType;
+   public int getUserType() {
+       return userTypeID;
     }
 
     public void setUserType(int userType) {
-        this.userType = userType;
+        this.userTypeID = userType;
     }
 
     public PersonProfile getPersonProfile() {
@@ -76,13 +78,7 @@ public class SiteUser {
         this.password = password;
     }
 
-    public int getRoleID() {
-        return roleID;
-    }
-
-    public void setRoleID(int roleID) {
-        this.roleID = roleID;
-    }
+    
 
     public List<UserProject> getUserProjects() {
         return userProjects;
@@ -93,17 +89,20 @@ public class SiteUser {
     }
 
     //HasCode and Equals Override for the SiteUser Class
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 83 * hash + Objects.hashCode(this.userName);
-        hash = 83 * hash + this.userType;
-        hash = 83 * hash + Objects.hashCode(this.PersonProfile);
-        hash = 83 * hash + Objects.hashCode(this.password);
-        hash = 83 * hash + this.roleID;
-        hash = 83 * hash + Objects.hashCode(this.userProjects);
+        hash = 41 * hash + Objects.hashCode(this.userName);
+        hash = 41 * hash + this.userTypeID;
+        hash = 41 * hash + Objects.hashCode(this.PersonProfile);
+        hash = 41 * hash + Objects.hashCode(this.password);
+        hash = 41 * hash + Objects.hashCode(this.userProjects);
         return hash;
     }
+
+   
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -117,12 +116,10 @@ public class SiteUser {
             return false;
         }
         final SiteUser other = (SiteUser) obj;
-        if (this.userType != other.userType) {
+        if (this.userTypeID != other.userTypeID) {
             return false;
         }
-        if (this.roleID != other.roleID) {
-            return false;
-        }
+        
         if (!Objects.equals(this.userName, other.userName)) {
             return false;
         }

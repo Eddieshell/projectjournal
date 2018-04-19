@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * --Person Profile Model--
@@ -20,11 +21,12 @@ import javax.persistence.Id;
  * @author Eddie
  */
 
-@Entity
+@Entity(name= "personprofile")
 public class PersonProfile {
     
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "personProfileID")
     private int personProfileID;
     
     @Column

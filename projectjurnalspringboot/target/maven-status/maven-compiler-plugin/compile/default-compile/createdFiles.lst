@@ -1,0 +1,10 @@
+com\update\projectjurnalspringboot\ProjectjurnalspringbootApplication.class
+com\update\projectjurnalspringboot\model\UserProject.class
+com\update\projectjurnalspringboot\model\PersonProfile.class
+com\update\projectjurnalspringboot\dao\ProjectUpdateRepository.class
+com\update\projectjurnalspringboot\model\ProjectUpdate.class
+com\update\projectjurnalspringboot\dao\PersonProfileRepository.class
+com\update\projectjurnalspringboot\dao\SiteUserRepository.class
+com\update\projectjurnalspringboot\model\SiteUser.class
+com\update\projectjurnalspringboot\dao\UserProjectRepository.class
+com\update\projectjurnalspringboot\model\UserType.class
