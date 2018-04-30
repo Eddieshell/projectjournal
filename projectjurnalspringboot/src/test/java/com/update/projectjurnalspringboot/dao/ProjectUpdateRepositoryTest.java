@@ -8,6 +8,7 @@ package com.update.projectjurnalspringboot.dao;
 import com.update.projectjurnalspringboot.model.ProjectUpdate;
 import com.update.projectjurnalspringboot.model.SiteUser;
 import com.update.projectjurnalspringboot.model.UserProject;
+import com.update.projectjurnalspringboot.model.UserType;
 import java.time.LocalDate;
 import java.util.Optional;
 import org.junit.After;
@@ -37,6 +38,10 @@ public class ProjectUpdateRepositoryTest {
     
     @Autowired
     SiteUserRepository user;
+    
+    
+    
+    
     
     public ProjectUpdateRepositoryTest() {
     }
@@ -75,6 +80,18 @@ public class ProjectUpdateRepositoryTest {
         
         
         assertEquals(up, fromDb.get());
+        
+        ProjectUpdate testUpdate = new ProjectUpdate();
+        testUpdate.setProjectID(fromDb.get().getProjectID());
+        testUpdate.setProjectUpdateDate(LocalDate.now());
+        testUpdate.setProjectUpdateTitle("Here is a test Update");
+        testUpdate.setProjectUpdate("We are now testing the update dao");
+        dao.save(testUpdate);
+        
+        Optional<ProjectUpdate> updateFromDb = 
+                dao.findById(testUpdate.getProjectUpdateID());
+        
+        assertEquals(testUpdate, updateFromDb.get());
         
         
         

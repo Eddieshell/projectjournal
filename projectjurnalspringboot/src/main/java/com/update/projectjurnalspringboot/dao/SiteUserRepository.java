@@ -12,11 +12,13 @@ package com.update.projectjurnalspringboot.dao;
 
 import com.update.projectjurnalspringboot.model.SiteUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Eddie
  */
+@Repository
 public interface SiteUserRepository extends JpaRepository<SiteUser, String>{
     
 }

@@ -12,11 +12,13 @@ package com.update.projectjurnalspringboot.dao;
 
 import com.update.projectjurnalspringboot.model.UserProject;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Eddie
  */
+@Repository
 public interface UserProjectRepository extends JpaRepository<UserProject, Integer> {
     
 }

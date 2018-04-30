@@ -9,8 +9,61 @@ and open the template in the editor.
         <title>Project Journal</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/main.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
+
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body>        
+        <div class = "container-fluid">
+            <div class="row">
+                <div class="col-xs-3 col-md-offset-1">
+                    <h1 id="logo">Inspired</h1>
+                </div>
+                <div class="col-xs-2 col-xs-offset-6">
+                    <button id="frontPageButton" class="btn btn-primary btn-sm disabled" 
+                       data-target="#loginModal" data-toggle="modal" aria-disabled="true">Sign In</button>
+                    <a href="#"  id="frontPageButton" class="btn btn-primary btn-sm disabled" 
+                       role="button" aria-disabled="true">Sign Up</a>
+                </div>
+            
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="modal" id="loginModal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Sign In</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            
+           <div class='row'>
+              
+                <div id="heroImage"></div>
+                <div class="row">
+                <div id="heroText">
+                    <h1 class="overlayText">Share Your Passions</h1>
+                    <h1 class="overlayText">Share Your Projects</h1>
+                    <h1 class="overlayText">Inspire Others</h1>
+                    <a href="#"  id="heroButton" class="btn btn-primary btn-lg disabled" 
+                       role="button" aria-disabled="true">Get Inspired</a>
+                </div>
+                </div>
+                    
+               
+           </div>
+            
+        </div>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/js/jquery-3.1.1.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
     </body>
 </html>
